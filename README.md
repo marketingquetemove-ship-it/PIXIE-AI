@@ -16,7 +16,7 @@
 
 <br>
 
-<img src="./assets/pixie-banner.png" width="100%" alt="Pixie AI Banner">
+<img width="1366" height="768" alt="pixie-banner" src="https://github.com/user-attachments/assets/d1d2f891-029a-4377-afa3-487b13b2ab09" />
 
 <br>
 
