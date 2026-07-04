@@ -1,0 +1,342 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background: #02010d;
+  color: white;
+}
+
+/* REMOVE APENAS O HEADER DO CHAT */
+.chat-header {
+  display: none !important;
+}
+
+/* FUNDO DA PÁGINA INICIAL */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px;
+  background-image: url("pixie-banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  max-width: 420px;
+  padding: 40px 20px;
+}
+
+.hero-actions {
+  display: inline-flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 26px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 34px;
+  min-width: 170px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.98;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff4fd8 0%, #00eaff 45%, #7d2cff 100%);
+  color: #fff;
+  box-shadow: 0 24px 60px rgba(255, 79, 216, 0.25);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 26px 72px rgba(255, 79, 216, 0.25);
+}
+
+.chat-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 24px;
+  background: rgba(3, 4, 18, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat-navbar .logo {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.chat-navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-navbar a.btn {
+  padding: 12px 22px;
+  min-width: 110px;
+}
+
+/* FUNDO PIXIE MAIS VIBRANTE */
+.chat-page {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image:
+    linear-gradient(rgba(0, 0, 20, 0.10), rgba(0, 0, 20, 0.25)),
+    url("fundo-chat.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ÁREA DO CHAT */
+.chat-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* QUADRADO DAS MENSAGENS */
+.chat-messages {
+  position: absolute;
+  left: 160px;
+  bottom: 140px;
+  width: 52%;
+  max-width: 760px;
+  height: 300px;
+  padding: 24px;
+  overflow-y: auto;
+
+  background: rgba(0, 0, 25, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 0 25px rgba(255, 79, 216, 0.20),
+    0 0 40px rgba(0, 234, 255, 0.12);
+}
+
+/* BALÕES */
+.bubble {
+  width: fit-content;
+  max-width: 100%;
+  padding: 15px 22px;
+  margin-bottom: 15px;
+  border-radius: 24px;
+  line-height: 1.5;
+  font-size: 16px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.pixie-bubble {
+  background: linear-gradient(135deg, #ff4fd8, #7d2cff);
+  color: white;
+  box-shadow: 0 0 18px rgba(255, 79, 216, 0.35);
+}
+
+.user-bubble {
+  margin-left: auto;
+  background: linear-gradient(135deg, #00eaff, #0077ff);
+  color: white;
+  box-shadow: 0 0 18px rgba(0, 234, 255, 0.35);
+}
+
+/* CAMPO DE DIGITAÇÃO */
+.chat-input-area {
+  position: fixed;
+  left: 160px;
+  bottom: 45px;
+  width: 52%;
+  max-width: 760px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.chat-input-area input {
+  flex: 1;
+  height: 62px;
+  padding: 0 28px;
+  border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0, 0, 20, 0.75);
+  color: white;
+  outline: none;
+  font-size: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.chat-input-area input::placeholder {
+  color: rgba(255,255,255,0.65);
+}
+
+.chat-input-area button {
+  width: 95px;
+  height: 62px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #ff4fd8, #00eaff, #ffe45c);
+  color: #050014;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-input-area button:hover {
+  transform: scale(1.05);
+}
+
+.chat-input-area button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#voiceButton {
+  margin-left: 8px;
+  padding: 0 14px;
+  min-width: 48px;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffdd56, #ff7d7d);
+}
+
+#voiceButton.recording {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 125, 125, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 125, 125, 0);
+  }
+}
+
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .chat-messages {
+    left: 15px;
+    right: 15px;
+    bottom: 125px;
+    width: auto;
+    height: 300px;
+  }
+
+  .chat-input-area {
+    left: 15px;
+    right: 15px;
+    bottom: 30px;
+    width: auto;
+  }
+
+  .chat-input-area button {
+    width: 78px;
+    font-size: 13px;
+  }
+}
+.chat-input-area {
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+#sendButton {
+  pointer-events: auto;
+  cursor: pointer;
+}
+.pixie-face {
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  height: 92vh;
+  max-width: 44vw;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 0.35s ease;
+  background: transparent !important;
+  image-rendering: auto;
+  mix-blend-mode: normal;
+  filter: none;
+  padding: 0;
+  border: none;
+  outline: none;
+  image-rendering: -webkit-optimize-contrast;
+  transform-origin: center bottom;
+  -webkit-mask-image: none;
+  mask-image: none;
+  opacity: 1;
+  display: block;
+  isolation: isolate;
+}
+
+.pixie-face:hover {
+  transform: scale(1.04);
+  opacity: 0.98;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
+}

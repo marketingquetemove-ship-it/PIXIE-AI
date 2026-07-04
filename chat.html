@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Pixie</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body id="top">
+  <nav class="chat-navbar">
+    <div class="logo">Chat</div>
+    <ul>
+      <li><a href="index.html" class="btn btn-secondary">Início</a></li>
+      <li><a href="#chat-section" class="btn btn-primary">Chat</a></li>
+    </ul>
+  </nav>
+
+  <main id="chat-section" class="chat-page">
+    <section class="chat-card">
+      <div class="chat-messages" id="chatMessages">
+        <div class="bubble pixie-bubble">Olá! Eu sou a Pixie. Como posso te ajudar hoje?</div>
+      </div>
+
+      <div class="chat-input-area">
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="Digite sua mensagem..."
+          autocomplete="off"
+        />
+        <button id="voiceButton" type="button" aria-label="Gravar voz">🎤</button>
+        <button id="sendButton" type="button">Enviar</button>
+      </div>
+    </section>
+  </main>
+
+<script src="chat.js" defer></script>
+<img id="pixieFace" class="pixie-face" src="pixie-normal.png" alt="Pixie">
+<button id="voiceButton" type="button">🎤</button>
+</body>
+</html>
+
